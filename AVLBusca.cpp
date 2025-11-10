@@ -270,18 +270,27 @@ void exibirElementosArvore(NO* no, int espaco, bool direita) {
 }
 
 void buscarElementoArvore(NO* no, int valor) {
-    /* Função de busca recursiva em árvore binária de busca
-       
-       Esta função deve:
-       1. Verificar se o nó atual é NULL (caso base - elemento não encontrado)
-       2. Verificar se o valor do nó atual é igual ao valor procurado (caso base - encontrado)
-       3. Se o valor procurado é menor que o valor do nó atual, buscar na subárvore esquerda
-       4. Se o valor procurado é maior que o valor do nó atual, buscar na subárvore direita
-       
-       IMPLEMENTE ESTA FUNÇÃO DE FORMA RECURSIVA!
-    */
-    
-    // TODO: Implemente a busca recursiva aqui
-    
-    cout << "Funcao de busca nao implementada!\n";
+    /*1. Verificar se o nó atual é NULL(caso base - elemento não encontrado)*/
+    if (no == NULL) {
+        cout << "Elemento nao encontrado." << endl;
+        return;
+    }
+
+    /*2. Verificar se o valor do nó atual é igual ao valor procurado(caso base - encontrado)*/
+    if (valor == no->valor) {
+        cout << "Elemento encontrado!" << endl;
+        return;
+    }
+
+    /*3. Se o valor procurado é menor que o valor do nó atual, buscar na subárvore esquerda*/
+    if (valor < no->valor) {
+        buscarElementoArvore(no->esq, valor);
+        return;
+    }
+
+    /*4. Se o valor procurado é maior que o valor do nó atual, buscar na subárvore direita*/
+    if (valor > no->valor) {
+        buscarElementoArvore(no->dir, valor);
+        return;
+    }
 }
